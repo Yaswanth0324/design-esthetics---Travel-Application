@@ -36,6 +36,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/near-me" element={<HomePage scrollTo="location" />} />
+        <Route path="/destinations" element={<HomePage scrollTo="destinations" />} />
         <Route path="/destination/:id" element={<DestinationPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

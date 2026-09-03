@@ -21,6 +21,24 @@ const categoryColors = {
   Diving: { bg: 'rgba(6, 182, 212, 0.15)', color: '#06b6d4' },
 };
 
+const categoryIcons = {
+  Temple: '🕌',
+  Shrine: '⛩️',
+  Museum: '🏛️',
+  Park: '🌳',
+  Beach: '🏖️',
+  Mountain: '🏔️',
+  Landmark: '📍',
+  Monument: '🗿',
+  Palace: '🏰',
+  District: '🏙️',
+  Village: '🏡',
+  Nature: '🌿',
+  Art: '🎨',
+  Archaeological: '🏺',
+  Diving: '🤿',
+};
+
 function PlaceImage({ place }) {
   const { photos, loading } = usePexels(place.pexelsQuery, 1);
   const [imgError, setImgError] = useState(false);
@@ -52,9 +70,15 @@ function PlaceImage({ place }) {
   }
 
   const colors = categoryColors[place.category] || { bg: 'rgba(0,212,170,0.15)', color: '#00d4aa' };
+  const icon = categoryIcons[place.category] || '✨';
+  
+  // High quality Unsplash placeholder URL based on search query or category
+  const fallbackImgUrl = `https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80`;
+
   return (
-    <div className="place-card__image-wrapper place-card__image--fallback" style={{ background: colors.bg }}>
-      <span style={{ fontSize: '2.5rem' }}>🏛️</span>
+    <div className="place-card__image-wrapper place-card__image--fallback" style={{ background: colors.bg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <span style={{ fontSize: '2.8rem', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))' }}>{icon}</span>
+      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: colors.color, marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{place.category}</span>
     </div>
   );
 }

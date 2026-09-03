@@ -18,6 +18,16 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [location]);
 
+  const handleSectionClick = (id) => {
+    setMenuOpen(false);
+    if (location.pathname === '/') {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
       <div className="container">
@@ -30,9 +40,29 @@ export default function Navbar() {
           </Link>
 
           <ul className="navbar__links" role="list">
-            <li><Link to="/" className={`navbar__link ${location.pathname === '/' ? 'navbar__link--active' : ''}`}>Explore</Link></li>
-            <li><a href="/#destinations" className="navbar__link">Destinations</a></li>
-            <li><a href="/#location" className="navbar__link">Near Me</a></li>
+            <li>
+              <Link to="/" className={`navbar__link ${location.pathname === '/' && !location.hash ? 'navbar__link--active' : ''}`}>
+                Explore
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/#destinations"
+                onClick={() => handleSectionClick('destinations')}
+                className={`navbar__link ${location.hash === '#destinations' || location.pathname === '/destinations' ? 'navbar__link--active' : ''}`}
+              >
+                Destinations
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/#location"
+                onClick={() => handleSectionClick('location')}
+                className={`navbar__link ${location.hash === '#location' || location.pathname === '/near-me' ? 'navbar__link--active' : ''}`}
+              >
+                Near Me
+              </Link>
+            </li>
           </ul>
 
           <button
@@ -49,9 +79,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`} role="dialog" aria-label="Mobile menu">
         <ul role="list">
-          <li><Link to="/" className="navbar__mobile-link">Explore</Link></li>
-          <li><a href="/#destinations" className="navbar__mobile-link">Destinations</a></li>
-          <li><a href="/#location" className="navbar__mobile-link">Near Me</a></li>
+          <li><Link to="/" onClick={() => setMenuOpen(false)} className="navbar__mobile-link">Explore</Link></li>
+          <li><Link to="/#destinations" onClick={() => handleSectionClick('destinations')} className="navbar__mobile-link">Destinations</Link></li>
+          <li><Link to="/#location" onClick={() => handleSectionClick('location')} className="navbar__mobile-link">Near Me</Link></li>
         </ul>
       </div>
     </header>

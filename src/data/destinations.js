@@ -749,6 +749,72 @@ export const destinations = [
       },
     ],
   },
+  {
+    id: 'india',
+    name: 'India',
+    country: 'India',
+    continent: 'Asia',
+    tagline: 'Land of timeless heritage, vibrant cultures, and spiritual beauty',
+    description:
+      'India is a land of vivid colors, rich royal history, majestic monuments, and breathtaking landscapes. From the ethereal beauty of the Taj Mahal to the serene backwaters of Kerala and ancient temples of South India, India offers an unparalleled journey of discovery.',
+    coordinates: { lat: 28.6139, lon: 77.209 },
+    tags: ['culture', 'history', 'food', 'temples', 'architecture', 'nature'],
+    bestTime: 'October–March',
+    language: 'Hindi / English',
+    currency: 'INR (₹)',
+    timezone: 'IST UTC+5:30',
+    rating: 4.9,
+    famousPlaces: [
+      {
+        id: 'taj-mahal',
+        name: 'Taj Mahal, Agra',
+        description:
+          'An ivory-white marble mausoleum on the south bank of the Yamuna River, universally admired as one of the Seven Wonders of the World and an eternal symbol of love.',
+        category: 'Monument',
+        pexelsQuery: 'taj mahal agra india',
+      },
+      {
+        id: 'qutub-minar',
+        name: 'Qutub Minar, New Delhi',
+        description:
+          'A 73-metre tall UNESCO World Heritage victory tower built in 1192, featuring intricate red sandstone carvings and historic Indo-Islamic architecture.',
+        category: 'Landmark',
+        pexelsQuery: 'qutub minar delhi',
+      },
+      {
+        id: 'amer-fort',
+        name: 'Amer Fort, Jaipur',
+        description:
+          'A grand hilltop fortress overlooking Maota Lake, famous for its artistic Hindu elements, majestic courtyards, and the sparkling Sheesh Mahal (Mirror Palace).',
+        category: 'Palace',
+        pexelsQuery: 'amber fort jaipur',
+      },
+      {
+        id: 'varanasi-ghats',
+        name: 'Varanasi Ghats & Ganges',
+        description:
+          'One of the world\'s oldest living cities, known for its sacred riverfront steps along the Ganges where evening Ganga Aarti rituals ignite spiritual wonder.',
+        category: 'Culture',
+        pexelsQuery: 'varanasi ghats ganges india',
+      },
+      {
+        id: 'gateway-of-india',
+        name: 'Gateway of India, Mumbai',
+        description:
+          'An iconic 20th-century arch monument overlooking the Arabian Sea, built to commemorate the landing of King George V and Queen Mary in 1911.',
+        category: 'Monument',
+        pexelsQuery: 'gateway of india mumbai',
+      },
+      {
+        id: 'kerala-backwaters',
+        name: 'Kerala Houseboat Backwaters',
+        description:
+          'A serene network of interconnected canals, rivers, and lakes lined with swaying coconut palms and traditional wooden kettuvallam houseboats.',
+        category: 'Nature',
+        pexelsQuery: 'kerala backwaters houseboat',
+      },
+    ],
+  },
 ];
 
 export const continents = ['All', 'Asia', 'Europe', 'North America', 'South America', 'Africa', 'Oceania'];
